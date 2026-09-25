@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,viewport-fit=cover"
+  >
+
+  <title>TikTak — Challenge Arena</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+
+    <div class="brand">
+
+      <span class="brand-mark">TT</span>
+
+      <span>
+        <b>TikTak</b>
+        <small>Challenge Arena</small>
+      </span>
+
+    </div>
+
+    <!-- Hidden until valid login -->
+    <button
+      id="menuBtn"
+      class="icon-btn hidden"
+      aria-label="Open account menu"
+    >
+      ⋮
+    </button>
+
+    <div id="menu" class="menu hidden">
+
+      <button data-action="play">
+        Play for Money
+      </button>
+
+      <button data-action="add">
+        Add Money
+      </button>
+
+      <button data-action="withdraw">
+        Withdraw
+      </button>
+
+      <button data-action="settings">
+        Settings
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <main class="shell">
+
+
+    <!-- =====================================================
+         LOGIN
+    ====================================================== -->
+
+    <section
+      id="loginView"
+      class="panel login-panel"
+    >
+
+      <div class="eyebrow">
+        SECURE PLAYER ACCESS
+      </div>
+
+      <h1>
+        Enter the Arena.
+      </h1>
+
+      <p class="muted">
+        Enter the personal key sent to you after completing
+        TikTak registration.
+      </p>
+
+      <label>
+
+        Personal Key
+
+        <input
+          id="keyInput"
+          autocomplete="off"
+          autocapitalize="characters"
+          placeholder="e.g. TT-48291"
+        >
+
+      </label>
+
+      <button
+        id="loginBtn"
+        class="primary"
+      >
+        Enter Game
+      </button>
+
+      <p
+        id="loginMsg"
+        class="msg"
+      ></p>
+
+
+      <div class="login-options">
+
+        <button
+          id="registerBtn"
+          class="secondary"
+        >
+          Register for TikTak
+        </button>
+
+        <button
+          id="demoBtn"
+          class="text-btn"
+        >
+          Use Demo Key
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         REGISTRATION
+    ====================================================== -->
+
+    <section
+      id="registerView"
+      class="panel register-panel hidden"
+    >
+
+      <div class="eyebrow">
+        PLAYER REGISTRATION
+      </div>
+
+      <h2>
+        Create Your TikTak Account
+      </h2>
+
+      <p class="muted">
+        Complete the registration form below.
+        After your information is reviewed, your personal
+        TikTak key will be sent to your registered contact.
+      </p>
+
+      <div class="tally-frame">
+
+        <!--
+          IMPORTANT:
+          Replace this URL with your real TikTak
+          registration Tally form.
+        -->
+
+        <iframe
+          src="https://tally.so/r/YOUR-REGISTRATION-FORM"
+          width="100%"
+          height="650"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="TikTak Registration Form">
+        </iframe>
+
+      </div>
+
+      <button
+        id="backLoginBtn"
+        class="secondary full-btn"
+      >
+        Back to Login
+      </button>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GAME
+    ====================================================== -->
+
+    <section
+      id="gameView"
+      class="hidden"
+    >
+
+      <div class="hero">
+
+        <div>
+
+          <div class="eyebrow">
+            TIKTAK CHALLENGE
+          </div>
+
+          <h1>
+            Ready,
+            <span id="playerName">
+              Player
+            </span>?
+          </h1>
+
+          <p class="muted">
+            You play as <b>X</b>.
+            Your opponent is <b>BOT</b>.
+          </p>
+
+        </div>
+
+        <div class="wallet">
+
+          <span>
+            Challenge Entry
+          </span>
+
+          <strong>
+            ₦50
+          </strong>
+
+          <small>
+            One challenge / 5 scored rounds
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <!-- WIN REPORT NOTICE -->
+      <div
+        id="paymentNotice"
+        class="notice hidden"
+      ></div>
+
+
+
+      <!-- ===================================================
+           LOTTERY / CHALLENGE DRAW
+      ==================================================== -->
+
+      <section
+        id="drawPanel"
+        class="draw-panel hidden"
+      >
+
+        <div class="draw-top">
+
+          <div class="eyebrow">
+            CHALLENGE DRAW
+          </div>
+
+          <div
+            id="drawStage"
+            class="draw-stage"
+          >
+            Preparing your challenge...
+          </div>
+
+        </div>
+
+
+        <div class="draw-machine">
+
+          <div
+            id="drawGlow"
+            class="draw-glow"
+          ></div>
+
+
+          <div class="bot-card">
+
+            <div class="bot-icon">
+              O
+            </div>
+
+            <div>
+
+              <small>
+                OPPONENT
+              </small>
+
+              <strong>
+                BOT
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="drawSlots"
+            class="draw-slots"
+          >
+
+            <div class="draw-slot">
+              <span>01</span>
+            </div>
+
+            <div class="draw-slot">
+              <span>02</span>
+            </div>
+
+            <div class="draw-slot">
+              <span>03</span>
+            </div>
+
+            <div class="draw-slot">
+              <span>04</span>
+            </div>
+
+            <div class="draw-slot">
+              <span>05</span>
+            </div>
+
+          </div>
+
+
+          <div
+            id="drawResult"
+            class="draw-result"
+          >
+            DRAW READY
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ===================================================
+           CHALLENGE STATUS
+      ==================================================== -->
+
+      <div
+        id="challengeStatus"
+        class="challenge-status"
+      >
+
+        <div class="challenge-round">
+
+          <span>
+            ROUND
+          </span>
+
+          <strong id="roundNumber">
+            1
+          </strong>
+
+          <small>
+            OF 5
+          </small>
+
+        </div>
+
+
+        <div class="challenge-score">
+
+          <div class="score-you">
+
+            <span>
+              YOU
+            </span>
+
+            <strong id="challengeWins">
+              0
+            </strong>
+
+          </div>
+
+          <div class="score-divider">
+            :
+          </div>
+
+          <div class="score-bot">
+
+            <span>
+              BOT
+            </span>
+
+            <strong id="challengeLosses">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="challenge-ties">
+
+          <span>
+            TIES
+          </span>
+
+          <strong id="challengeTies">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ===================================================
+           ROUND RESULT
+      ==================================================== -->
+
+      <section
+        id="roundResultPanel"
+        class="round-result-panel hidden"
+      >
+
+        <div
+          id="roundResultIcon"
+          class="round-result-icon"
+        >
+          ✓
+        </div>
+
+        <div>
+
+          <div
+            id="roundResultEyebrow"
+            class="eyebrow"
+          >
+            ROUND RESULT
+          </div>
+
+          <h2 id="roundResultTitle">
+            YOU WIN
+          </h2>
+
+          <p
+            id="roundResultText"
+            class="muted"
+          >
+            Round completed.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ===================================================
+           GAME BOARD
+      ==================================================== -->
+
+      <div class="game-panel">
+
+        <div class="scorebar">
+
+          <div>
+
+            <span class="dot you"></span>
+
+            You
+
+            <b id="wins">
+              0
+            </b>
+
+          </div>
+
+
+          <div
+            class="round-status"
+            id="status"
+          >
+            Your turn
+          </div>
+
+
+          <div>
+
+            <span class="dot bot"></span>
+
+            BOT
+
+            <b id="losses">
+              0
+            </b>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="board"
+          class="board"
+          aria-label="TikTak board"
+        ></div>
+
+
+        <div class="game-actions">
+
+          <button
+            id="newGameBtn"
+            class="primary"
+          >
+            New Challenge
+          </button>
+
+          <button
+            id="quitBtn"
+            class="danger"
+          >
+            Quit Challenge
+          </button>
+
+        </div>
+
+
+        <p class="tiny">
+
+          A tie does not count as a win or loss.
+          The same round automatically replays until
+          there is a winner.
+
+        </p>
+
+      </div>
+
+
+
+      <!-- ===================================================
+           PLAYER STATISTICS
+      ==================================================== -->
+
+      <div class="stats">
+
+        <div>
+
+          <span>
+            Challenges
+          </span>
+
+          <b id="games">
+            0
+          </b>
+
+        </div>
+
+        <div>
+
+          <span>
+            Wins
+          </span>
+
+          <b id="statWins">
+            0
+          </b>
+
+        </div>
+
+        <div>
+
+          <span>
+            Losses
+          </span>
+
+          <b id="statLosses">
+            0
+          </b>
+
+        </div>
+
+        <div>
+
+          <span>
+            Winnings
+          </span>
+
+          <b id="winnings">
+            ₦0
+          </b>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ACCOUNT
+    ====================================================== -->
+
+    <section
+      id="accountView"
+      class="panel hidden"
+    >
+
+      <div
+        class="eyebrow"
+        id="accountEyebrow"
+      >
+        ACCOUNT
+      </div>
+
+      <h2 id="accountTitle">
+        Account
+      </h2>
+
+      <p
+        class="muted"
+        id="accountText"
+      ></p>
+
+      <div id="accountContent"></div>
+
+      <button
+        class="secondary"
+        id="closeAccount"
+      >
+        Back to Game
+      </button>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =======================================================
+       QUIT MODAL
+  ======================================================== -->
+
+  <div
+    id="modal"
+    class="modal hidden"
+    role="dialog"
+    aria-modal="true"
+  >
+
+    <div class="modal-card">
+
+      <button
+        id="modalClose"
+        class="modal-close"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div class="eyebrow">
+        CHALLENGE NOTICE
+      </div>
+
+      <h2 id="modalTitle">
+        Quit challenge?
+      </h2>
+
+      <p id="modalText"></p>
+
+      <div class="modal-actions">
+
+        <button
+          id="modalCancel"
+          class="secondary"
+        >
+          Cancel
+        </button>
+
+        <button
+          id="modalConfirm"
+          class="danger"
+        >
+          Confirm
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
