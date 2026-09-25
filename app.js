@@ -1808,10 +1808,13 @@
 
       result,
 
-      challengeScore:
+            challengeScore:
         `${playerScore}-${botScore}`,
 
       ties,
+
+      roundHistory:
+        [...roundHistory],
 
       rounds:
         CHALLENGE_ROUNDS,
