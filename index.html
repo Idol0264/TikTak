@@ -22,11 +22,38 @@
   <main class="shell">
     <section id="loginView" class="panel login-panel">
       <div class="eyebrow">SECURE PLAYER ACCESS</div>
+      
       <h1>Enter the Arena.</h1>
-      <p class="muted">Use the personal key sent to you after registration.</p>
-      <label>Personal Key<input id="keyInput" autocomplete="off" placeholder="e.g. TT-48291"></label>
-      <button id="loginBtn" class="primary">Enter Game</button>
+      
+      <p class="muted">
+        Enter the personal key sent to you after completing registration.
+      </p>
+      
+      <label>
+        Personal Key
+        <input
+          id="keyInput"
+          autocomplete="off"
+          autocapitalize="characters"
+          placeholder="e.g. TT-48291"
+          >
+      </label>
+      
+      <button id="loginBtn" class="primary">
+        Enter Game
+      </button>
+      
       <p id="loginMsg" class="msg"></p>
+      
+      <div class="login-options">
+        <button id="registerBtn" class="secondary">
+          Register for TikTak
+        </button>
+        
+        <button id="demoBtn" class="text-btn">
+          Use Demo Key
+        </button>
+      </div>
     </section>
 
     <section id="gameView" class="hidden">
