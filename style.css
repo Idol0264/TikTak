@@ -133,9 +133,11 @@ button{
 
   backdrop-filter:blur(18px);
 
-  position:relative;
-
-  z-index:100;
+  position:sticky;
+  
+  top:0;
+  
+  z-index:1000;
 }
 
 
