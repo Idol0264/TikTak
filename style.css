@@ -22,3 +22,85 @@ button{font:inherit}.primary,.secondary,.danger{border:0;border-radius:13px;padd
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.68);backdrop-filter:blur(8px);display:grid;place-items:center;padding:20px;z-index:50}.modal-card{position:relative;width:min(460px,100%);padding:28px;border:1px solid var(--border);border-radius:24px;background:#101221;box-shadow:var(--shadow)}.modal-close{position:absolute;right:12px;top:10px;border:0;background:none;color:#aaa;font-size:28px;cursor:pointer}.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px}
 .accountView{}.account-grid{display:grid;gap:10px;margin:20px 0}.account-row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:15px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.035)}.account-row span{color:var(--muted);font-size:12px}.account-row b{display:block;margin-top:3px}.account-row button{padding:8px 11px;border-radius:9px;border:1px solid var(--border);background:rgba(255,255,255,.07);color:#fff;cursor:pointer}
 @media(max-width:600px){.shell{width:min(100% - 18px,920px);padding-top:20px}.hero{align-items:stretch;flex-direction:column}.wallet{text-align:left}.stats{grid-template-columns:repeat(2,1fr)}.game-panel{padding:12px}.cell{border-radius:15px}.login-panel{margin:20px auto;padding:24px}}
+.login-options{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
+
+.text-btn{
+  border:0;
+  background:transparent;
+  color:var(--cyan);
+  padding:10px;
+  cursor:pointer;
+  font-weight:800;
+}
+
+.register-panel{
+  max-width:760px;
+  margin:20px auto;
+  padding:28px;
+}
+
+.tally-frame{
+  width:100%;
+  overflow:hidden;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background:#fff;
+  margin:22px 0;
+}
+
+.tally-frame iframe{
+  display:block;
+  width:100%;
+  min-height:650px;
+  border:0;
+}
+
+.full-btn{
+  width:100%;
+}
+
+select{
+  display:block;
+  width:100%;
+  margin-top:8px;
+  padding:15px 16px;
+  border-radius:13px;
+  border:1px solid var(--border);
+  background:#090b15;
+  color:#fff;
+  outline:none;
+  font-size:16px;
+}
+
+select:focus{
+  border-color:var(--cyan);
+  box-shadow:0 0 0 3px rgba(77,247,255,.1);
+}
+
+@media(max-width:600px){
+
+  .register-panel{
+    padding:20px 14px;
+  }
+
+  .tally-frame iframe{
+    min-height:700px;
+  }
+
+  .login-options{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .login-options button{
+    width:100%;
+  }
+
+}
