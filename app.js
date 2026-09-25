@@ -1409,6 +1409,8 @@
 
     currentRound = 1;
 
+    roundHistory = [];
+
 
     board =
       Array(9).fill("");
