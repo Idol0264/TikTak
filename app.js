@@ -2590,10 +2590,43 @@
 
 
   $("newGameBtn")
-    .addEventListener(
-      "click",
-      newChallenge
-    );
+  .addEventListener(
+    "click",
+    () => {
+
+      /*
+        Do not allow a new challenge
+        while the current challenge
+        is still active.
+      */
+
+      if(active || botThinking){
+
+        openModal(
+
+          "Challenge in progress",
+
+          "You must finish the current challenge before starting a new one.",
+
+          () => {}
+
+        );
+
+        return;
+
+      }
+
+
+      /*
+        Only allow a new challenge
+        after the previous challenge
+        has ended.
+      */
+
+      newChallenge();
+
+    }
+  );
 
 
   $("quitBtn")
