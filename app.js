@@ -1122,6 +1122,31 @@
     }
 
 
+    /*
+      Save this completed round immediately.
+
+      This is done BEFORE the challenge can end,
+      so the 5th/final round is also recorded.
+    */
+
+    roundHistory.push({
+
+      round: currentRound,
+
+      winner:
+        mark === "X"
+          ? "PLAYER"
+          : "BOT",
+
+      playerScore,
+
+      botScore,
+
+      ties
+
+    });
+
+
     updateChallengeUI();
 
 
