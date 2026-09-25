@@ -85,6 +85,8 @@
 
   let currentRound = 1;
 
+  let roundHistory = [];
+
 
   /*
     Internal bot behaviour.
